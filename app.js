@@ -33,12 +33,28 @@ const promptUser = () => {
     {
       type: "input",
       name: "name",
-      message: "What is your name?",
+      message: "What is your name? (required)",
+      validate: (nameInput) => {
+        if (nameInput) {
+          return true;
+        } else {
+          console.log("please enter your name!");
+          return false;
+        }
+      },
     },
     {
       type: "input",
       name: "github",
       message: "Enter your GitHub Username",
+      validate: (githubInput) => {
+        if (githubInput) {
+          return true;
+        } else {
+          console.log("please enter github!");
+          return false;
+        }
+      },
     },
     {
       type: "input",
@@ -63,11 +79,27 @@ const promptProject = (portfolioData) => {
         type: "input",
         name: "name",
         message: "What is the name of your project?",
+        validate: (nameInput) => {
+          if (nameInput) {
+            return true;
+          } else {
+            console.log("Please enter your project name!");
+            return false;
+          }
+        },
       },
       {
         type: "input",
         name: "description",
         message: "Provide a description of the project (Required)",
+        validate: (descriptionInput) => {
+          if (descriptionInput) {
+            return true;
+          } else {
+            console.log("Please neter your project description!");
+            return false;
+          }
+        },
       },
       {
         type: "checkbox",
@@ -82,6 +114,19 @@ const promptProject = (portfolioData) => {
           "Bootstrap",
           "Node",
         ],
+      },
+      {
+        type: "input",
+        name: "link",
+        message: "Enter the Github link to your project. (Required)",
+        validate: (linkInput) => {
+          if (linkInput) {
+            return true;
+          } else {
+            console.log("Please enter your github link!");
+            return false;
+          }
+        },
       },
       {
         type: "confirm",
